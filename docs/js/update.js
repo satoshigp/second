@@ -18,7 +18,7 @@ function update() {
 
     //dude.x=game.input.x;
     //dude.y=game.input.y;
-    if(game.input.mousePointer.isDown || game.input.Pointer1.isDown)
+    if(/*game.input.mousePointer.isDown ||*/ game.input.Pointer1.isDown)
     {
         game.physics.arcade.moveToPointer(dude,400);
         if(Phaser.Rectangle.contains(dude.body,game.input.x,game.input.y))
