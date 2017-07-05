@@ -10,7 +10,7 @@ function preload() {
     game.load.baseURL = "https://satoshigp.github.io/second/";
     game.load.crossOrigin = "anonymous";
 
-  game.load.image('star', '../assets/images/star.png');
-    game.load.spritesheet('dude', '../assets/images/dude.png',32,48);
+  game.load.image('star', 'assets/images/star.png');
+    game.load.spritesheet('dude', 'assets/images/dude.png',32,48);
 
 }
