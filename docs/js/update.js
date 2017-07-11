@@ -12,13 +12,14 @@ function update() {
 
     //dudeと星が重なったらその星を消す(pickstar)を呼び出す
     game.physics.arcade.overlap(dude,stars,pickstar,null,this);
+    game.physics.arcade.overlap(dude,baddies,kamada,null,this);
 
     //dude.x++;
     //dude.y++;
 
     //dude.x=game.input.x;
     //dude.y=game.input.y;
-    if(/*game.input.mousePointer.isDown ||*/ game.input.Pointer1.isDown)
+    if(game.input.mousePointer.isDown)
     {
         game.physics.arcade.moveToPointer(dude,400);
         if(Phaser.Rectangle.contains(dude.body,game.input.x,game.input.y))
@@ -31,6 +32,7 @@ function update() {
         dude.body.velocity.setTo(0,0);
 
     }
+
 /*
 for(let i=0;i<100;i++)
 {
@@ -44,4 +46,29 @@ if(star[i].input.pointerOver())
 //dudeに、最初設定したスプライト、starに、次設定したグループ内のスプライトが渡される
 function pickstar(dude,star){
     star.kill();
+
+    stars.starCount--;
+    if(stars.starCount<=0)
+    {
+        console.log("clear!");
+    }
+}
+
+function kamada(dude,baddie)
+{
+    dude.kill();
+/*
+    if((baddies>dude.x,"32")||(baddies>dude.y,"32"))
+    {
+        console.log("miss");
+    }
+*/
+
+            console.log("miss");
+    
+
+
+
+
+
 }
