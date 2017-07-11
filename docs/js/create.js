@@ -12,15 +12,22 @@
 
  //グループに変更
  var stars;
+ var baddies;
  // var star = array[];
 
 function create() {
 //新規のグループを作成してそのインスタンスをstar入れる
     stars=game.add.group();
+    baddies=game.add.group();
+//星を数える
+    stars.starCount=0;
 //グループ内のオブジェクトの物理挙動を有効にする
     stars.enableBody=true;
-
+    baddies.enableBody=true;
     for(let i=0;i<100;i++){
+        stars.starCount++;
+
+
         let star=stars.create(game.rnd.integerInRange(80,560),game.rnd.integerInRange(80,280),'star');
 
   //star.push(game.add.sprite(game.rnd.integerInRange(80,560),game.rnd.integerInRange(80,280),'star'));
@@ -37,6 +44,29 @@ function create() {
     star.body.velocity.y=game.rnd.realInRange(-200,200);
 
   }
+  for(let s=0;s<4;s++)
+  {
+      let baddie=baddies.create(game.rnd.integerInRange(0,80),game.rnd.integerInRange(0,80),'baddie');
+
+      baddie.body.collideWorldBounds=true;
+      baddie.body.bounce.x=1;
+      baddie.body.bounce.y=1;
+
+      baddie.inputEnabled=true;
+
+      baddie.body.velocity.x=game.rnd.realInRange(-200,200);
+      baddie.body.velocity.y=game.rnd.realInRange(-200,200);
+
+      baddie.frame=4;
+      baddie.animations.add('left',[0,1],10,true);
+      baddie.animations.add('right',[2,3],10,true);
+      baddie.animations.play('left');
+
+
+
+  }
+
+
   //関数方言語の繰り返し
 /*
   star.forEach(function(st,index,ar){
@@ -75,4 +105,5 @@ function create() {
 
     dude.body.bounce.x=1;
     dude.body.bounce.y=1;
+
 }
