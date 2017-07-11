@@ -12,6 +12,6 @@ function preload() {
 
   game.load.image('star', 'assets/images/star.png');
     game.load.spritesheet('dude', 'assets/images/dude.png',32,48);
-    game.load.spritesheet('baddie', '../assets/images/baddie.png',32,32);
+    game.load.spritesheet('baddie', 'assets/images/baddie.png',32,32);
 
 }
